@@ -115,3 +115,43 @@ n 개의 정수와 m 개의 정수를 입력한다. n 개의 정수 list에 대�
 
 ### 의견
 위의 수 찾기 문제와 동일한 방법인 이분 탐색 알고리즘을 통해 쉽게 해결할 수 있었다.
+
+
+## 스택
+https://www.acmicpc.net/problem/10828
+### 문제풀이
+```python
+from collections import deque
+import sys
+input = sys.stdin.readline
+
+n_ = deque()
+for _ in range(int(input())):
+    text = input().rstrip()
+    if text[0] == 'p':
+        if text[1] == 'u':
+            n_.append(int(text[5:]))
+        elif text[1] == 'o':
+            if n_:
+                print(n_[-1])
+                n_.pop()
+            else:
+                print(-1)
+
+    elif text[0] == 't':
+        if n_:
+            print(n_[-1])
+        else:
+            print(-1)
+    elif text[0] == 's':
+        print(len(n_))
+    elif text[0] == 'e':
+        if n_:
+            print(0)
+        else:
+            print(1)
+```
+deque()를 선언하여 n만큼 명령어를 입력한다. 입력한 명령어에 대해 맨 앞 키워드를 조건으로 명령어에 대해 처리하는 프로그램을 작성한다.
+
+### 의견
+스택에 대해 알고 있어 쉽게 접근할 수 있고, 문제에서 주어진 조건만 빼먹지 않고 작성하면 코드 부분에서도 이해가 안되는 부분은 없었다.
