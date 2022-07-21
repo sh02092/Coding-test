@@ -1,3 +1,6 @@
+# https://www.acmicpc.net/problem/15486
+# 퇴사 2
+
 import sys
 input = sys.stdin.readline
 
