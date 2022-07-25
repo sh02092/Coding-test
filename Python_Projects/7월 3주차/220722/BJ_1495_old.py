@@ -1,3 +1,6 @@
+# https://www.acmicpc.net/problem/1495
+# 기타리스트- BJ_1495
+
 from collections import deque
 import sys
 input = sys.stdin.readline
