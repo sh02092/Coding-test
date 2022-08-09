@@ -1,3 +1,6 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/92342
+# 양궁대회- PG_92342
+
 from itertools import combinations_with_replacement
 
 def solution(n, info):

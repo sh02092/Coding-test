@@ -1,3 +1,6 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/77885
+# 2개 이하로 다른 비트- PG_77885
+
 # 10^15 => 11100011010111111010100100110001101000000000000000
 
 def solution(numbers):

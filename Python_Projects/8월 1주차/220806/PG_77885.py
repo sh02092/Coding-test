@@ -1,3 +1,6 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/77885
+# 2개 이하로 다른 비트- PG_77885
+
 def solution(numbers):
     answer = []
     for i in numbers:
