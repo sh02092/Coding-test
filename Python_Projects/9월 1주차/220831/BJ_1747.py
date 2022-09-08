@@ -1,3 +1,6 @@
+# https://www.acmicpc.net/problem/1747
+# 소수&팰린드롬- BJ_1747
+
 import math
 
 n = int(input())

@@ -1,3 +1,6 @@
+# https://www.acmicpc.net/problem/9372
+# 상근이의 여행- BJ_9372
+
 from collections import deque
 import sys
 input = sys.stdin.readline

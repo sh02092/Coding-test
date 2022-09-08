@@ -1,3 +1,6 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/70129
+# 이진 변환 반복하기- PG_70129
+
 def solution(s):
     answer = []
     count_0 = 0
