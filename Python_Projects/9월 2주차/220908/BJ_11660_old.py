@@ -18,3 +18,4 @@ for i in range(m):
         print(graph[x1 - 1][y1 - 1])
     else:
         print(temp[x2 - 1][y2 - 1] - temp[x1 - 1][y1 - 1])
+
