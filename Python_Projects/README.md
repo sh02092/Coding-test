@@ -27,24 +27,13 @@ print(string_1)
 
 ## 리스트
 ```python
-list_1 = list()
-list_1.append(10)   # list 가장 뒤에 10 넣기
-list_1.append(9)    # list 가장 뒤에 9 넣기
-list_1.append(8)    # list 가장 뒤에 8 넣기
-list_1.append(7)    # list 가장 뒤에 7 넣기
-list_1.append(6)    # list 가장 뒤에 6 넣기
-list_1.append(5)    # list 가장 뒤에 5 넣기
-list_1.append(4)    # list 가장 뒤에 4 넣기
-list_1.append(3)    # list 가장 뒤에 3 넣기
-list_1.append(2)    # list 가장 뒤에 2 넣기
-list_1.append(1)    # list 가장 뒤에 1 넣기
-list_1.append(0)    # list 가장 뒤에 0 넣기
+list_1 = list([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 
 list_1.pop()        # list 가장 뒤 원소 삭제
 a = list_1.pop(0)   # list 0번째 원소 삭제하여 a에 대입
 del list_1[2]       # list 2번째 원소 지우기
 del list_1[:2]      # list 0번째 원소부터 1번째 원소까지 지우기
-list_1.remove(1)    # list에서 첫번째로 있는 1 지우기
+list_1.remove(5)    # list에서 5 지우기
 print(list_1[:2])   # list 0번째 원소부터 1번째 원소까지 출력
 print(list_1[1:3])  # list 1번째 원소부터 2번째 원소까지 출력
 print(list_1[3:])   # list 3번째 원소부터 마지막 원소까지 출력
@@ -61,12 +50,72 @@ print(listCopy.reverse())   # listCopy 뒤집어 출력
 print(listCopy.sort())      # listCopy 오름차순 정렬 후 출력
 print(listCopy.sort(reverse = True))    # listCopy 내림차순 정렬 후 출력
 print(listCopy.count(3))    # listCopy 리스트 안의 원소 중 3의 개수 출력
-print(listCopy.index(3))    # listCopy 리스트 안의 원소 중 첫 번째로 있는 3의 위치 index 출력
+print(listCopy.index(4))    # listCopy 리스트 안의 원소 중 첫 번째로 있는 4의 위치 index 출력
 print(listCopy.clear())     # listCopy 리스트 초기화 후 출력
+
+print(list(range(0, 3)))    # [0, 1, 2] list 만들어 출력
 
 list_4 = [1, 2, 1, 2, 1, 1, 1, 3]
 print(set(list_4))          # list 중복 값 제거 후 출력, 집합 자료형, 값들의 순서 X
 print(list(set(list_4)))    # 값들의 순서가 없으므로 index로 접근 불가능 -> list로 변환 후 접근
+```
+
+
+# 리스트 sorting
+```python
+list_1 = [[0,"A"],[4,"B"],[2,"C"]]   
+
+list_2 = sorted(list_1, key = lambda x : x[0])      # 원본을 변형시키지 않는 0번째 key 값 기준 오름차순 정렬
+list_1.sort(key = lambda x : x[0], reverse = True)  # 원본이 변형되는 0번째 key 값 기준 내림차순 정렬
+```
+
+
+## 딕셔너리
+```python
+dic = {0 : [1, 2, 3], 1 : 'a', 2 : 'b', 'name' : 'hello'}
+dic[3] = 'c'            # dictionary에 3 : 'c' 쌍 추가
+dic['name'] = 'world'   # dictionary에 'name' : 'hello' 로 변경
+
+del dic[1]              # dictionary의 key = 1 인 쌍 삭제
+
+dicKey = dic.keys()     # dictionary의 key들만 모아 list로 만들기
+dicVal = dic.values()   # dictionary의 value들만 모아 list로 만들기
+dicItem = dic.items()   # dictionary의 (key, value) 쌍 
+dic_1 = dic.copy()      # dictionary 깊은 복사
+print(dic_1.get(100, 'default'))   # dictionary의 key 값에 대한 value 값 출력, 없으면 default 값 출력
+print(dic)
+print(dic_1)
+```
+
+
+# set
+```python
+set_1 = set()
+set_1.add(1)
+set_1.add(1)
+set_1.add(1)
+set_1.add(2)
+set_1.add(2)
+set_1.add(3)
+set_1.add(4)
+print(set_1)    # 집합, (1, 2, 3, 4) 출력
+
+set_2 = set([3, 4, 5, 6])
+
+print(set_1 & set_2)    # 교집합 {3, 4}
+print(set_1 - set_2)    # 차집합 {1, 2}
+print(set_1 | set_2)    # 합집합 {1, 2, 3, 4, 5, 6}
+
+set_1.remove(4)
+print(set_1)    # 집합, (1, 2, 3) 출력
+```
+
+
+# itertools
+```python
+import itertools
+comb = itertools.combinations([1, 2, 3, 4], 3)  # list에서 4 combination 3
+perm = itertools.permutations([1, 2, 3, 4], 3)  # list에서 4 permutation 3
 ```
 
 
