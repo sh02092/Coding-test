@@ -169,3 +169,33 @@ for i in range(n - 1):
     node_list[i].next = i + 1 # i 번째 노드의 next는 i+1
     node_list[i + 1].prev = i # i+1 번째 노드의 prev는 i
 ```
+
+### C++
+
+## type 확인
+```c++
+#include<typeinfo>
+
+int main(){
+    typeof(n).name();
+}
+```
+
+
+## vector
+```c++
+#include<vector>
+
+int main(){
+    vector<int> vec;
+
+    vec.push_back(1);
+    vec.push_back(2);
+    vec.push_back(3);
+    vec.push_back(4);
+    vec.push_back(5);
+    
+    vec.pop_back();
+    
+}
+```
