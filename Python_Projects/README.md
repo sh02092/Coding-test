@@ -22,6 +22,10 @@ print(string_1.split('o'))      # 문자열을 'o' 기준 나눠 list로, 출력
 print(':'.join(string_1))       # 문자열의 모든 문자 사이에 ':' 추가하여 출력
 
 print(string_1)
+
+string_1.upper()                # 문자열 대문자로
+string_1.lower()                # 문자열 소문자로
+string_1.capitalize()           # 문자열 첫 글자 대문자, 나머지 소문자로
 ```
 
 
@@ -170,6 +174,28 @@ for i in range(n - 1):
     node_list[i + 1].prev = i # i+1 번째 노드의 prev는 i
 ```
 
+
+## Zip
+```python
+number = [1, 2, 3]
+letter = ['A', 'B', 'C']
+for pair in zip(number, letter):
+    print(pair)
+    # (1, 'A')
+    # (2, 'B')
+    # (3, 'C')
+```
+
+
+## Ascii code
+```python
+# A ~ Z : 65 ~ 90
+# a ~ z : 97 ~ 122
+ord('A') = 65
+chr(65) = 'A'
+```
+
+
 ### C++
 
 ## type 확인
@@ -196,6 +222,20 @@ int main(){
     vec.push_back(5);
     
     vec.pop_back();
-    
+    return 0;    
+}
+```
+
+
+## string
+```c++
+#include<string>
+#include<iostream>
+
+int main(){
+    string str = "12345";
+    int str_to_n = stoi(str);   // 
+    string n_to_str = to_string(str_to_n);
+    return 0;
 }
 ```
