@@ -1,5 +1,7 @@
 ### Python
 
+stack... 자료구조를 까먹지 말자... stack... 
+
 ## 문자열
 ```python
 string_1 = 'hello world'        # 문자열 선언
