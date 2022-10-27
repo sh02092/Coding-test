@@ -2,6 +2,13 @@
 
 stack... 자료구조를 까먹지 말자... stack... 
 
+## 소수점 반올림
+```python
+round(3.140000, 4)          # 3.14, 소수점 5번째 자리에서 반올림
+print('%.4f' % 3.140000)    # 3.1400, 소수점 5번째 자리에서 반올림, 소수점 4자리까지 출력
+```
+
+
 ## 문자열
 ```python
 string_1 = 'hello world'        # 문자열 선언
@@ -239,6 +246,9 @@ int main(){
     vec.push_back(5);
     
     vec.pop_back();
+
+    vec.size();
+    
     return 0;    
 }
 ```
@@ -254,5 +264,29 @@ int main(){
     int str_to_n = stoi(str);   // 
     string n_to_str = to_string(str_to_n);
     return 0;
+}
+```
+
+
+## min, max, sort
+```c++
+#include<iostream>
+#include<algorithm>
+using namespace std;
+
+bool compare(int a, int b){
+    return a < b;
+}
+
+int main(){
+    int a = 3;
+    int b = 4;
+    int arr[5] = {1, 5, 2, 4, 3};
+
+    min(a, b);  // a
+    max(a, b);  // b
+
+    sort(arr, arr + 5);             // {1, 2, 3, 4, 5}
+    sort(arr, arr + 5, compare);    // {5, 4, 3, 2, 1}
 }
 ```

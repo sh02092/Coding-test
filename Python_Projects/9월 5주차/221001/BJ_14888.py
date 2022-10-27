@@ -1,26 +1,23 @@
-def solution(s):
-    answer = -1
-    len_s = 0
-    s = list(s)
-    while 1:
-        len_s = len(s)
-        if len(s) == 0:
-            break
-        else:
-            i = 1
-            while 1:
-                if i > len(s):
-                    break
-                if s[i - 1] == s[i]:
-                    del s[i - 1:i + 1]
-                i += 1
-                
-        if len_s == len(s):
-            break
-            
-    if len_s == 0:
-        return 1
-    else:
-        return 0
+import sys
 
-print(solution('cdcd'))
+n = int(sys.stdin.readline())
+a = list(map(int, sys.stdin.readline().split()))
+# 돌의 계수 리스트
+result = [1] * n
+
+for i in range(1, n):
+    # 돌의 계수를 비교할 변수 초기화
+    result_max = 0
+    for j in range(i):
+
+        # 다음 밟을 돌의 높이와 그전에 있는 모든 돌의 높이 비교
+        if a[i] > a[j]:
+            # 돌의 계수 비교
+            if result_max < result[j]:
+                result_max = result[j]
+
+    # 돌의 계수 카운트
+    result[i] = result_max + 1
+
+# 리스트에서 제일 큰 수를 출력
+print(max(result))
