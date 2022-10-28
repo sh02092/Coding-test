@@ -181,7 +181,8 @@ def dfs(x, y, max_row, max_col):
                 q.append(ny, nx)
                 temp[ny][nx] = True
 ```
-
+기본 DFS로는 밟을수 있는 미로의 칸 수
+최단 경로를 찾으려면 시작점부터 한 칸 이동할 때마다 1씩 증가시켜서 도착지점에서의 count를 세야함
 
 ## Linked list
 ```python
@@ -248,6 +249,11 @@ int main(){
     vec.pop_back();
 
     vec.size();
+
+    vec.begin();
+    vec.end();
+
+    vec.back();
     
     return 0;    
 }
