@@ -141,9 +141,19 @@ print(set_1)    # 집합, (1, 2, 3) 출력
 
 # itertools
 ```python
-import itertools
+from itertools import combinations
+from itertools import permutations
+
 comb = itertools.combinations([1, 2, 3, 4], 3)  # list에서 4 combination 3
 perm = itertools.permutations([1, 2, 3, 4], 3)  # list에서 4 permutation 3
+```
+
+
+# collections
+```python
+from collections import Counter
+Counter(["hi", "hey", "hi", "hi", "hello", "hey"])  # Counter({'hi': 3, 'hey': 2, 'hello': 1})
+
 ```
 
 
