@@ -172,3 +172,101 @@ else:
 파이썬 최대 정수값(sys.maxsize)을 더해도 z가 바뀌지 않을 경우 -1 출력, 나머지 경우엔 해당 정수값을 출력한다. 이분탐색 알고리즘 사용.
 ### 의견
 나름 많이 생각했다 생각했는데 10번 이상 실패가 뜨니 화가 났다... 구글링을 했더니 허무한 결과.. 이분탐색이라니... 신나게 구현문제를 풀다가 이분탐색과 같은 간단한 알고리즘 조차 기억이 안나서 풀지 못했다는 것이 화가나는 문제였다..
+
+
+## N과 M (1)
+https://www.acmicpc.net/problem/15649
+### 문제풀이
+```python
+from itertools import permutations
+import sys
+input = sys.stdin.readline
+
+n, m = map(int, input().split())
+li = permutations(range(n), m)
+
+for i in li:
+    for j in i:
+        print(j + 1, end=' ')
+    print()
+```
+itertools의 permutations로 모든 가능한 경우의 수 출력
+### 의견
+파이썬 사기
+
+
+## 배열 돌리기1
+https://www.acmicpc.net/problem/16926
+### 문제풀이
+```python
+from collections import deque
+import sys
+input = sys.stdin.readline
+
+n, m, r = map(int, input().split())
+graph = []
+for i in range(n):
+    graph.append(list(map(int, input().split())))
+
+q = [deque() for _ in range(min(n, m) // 2)]
+
+# queue에 넣기
+for i in range(min(n, m) // 2):     # queue 개수: min(n, m) // 2 개
+
+    for j in range(i, n - i - 1):    # (0, 0)부터 (n-1 (-1), 0) 까지 넣기
+        q[i].append(graph[j][i])
+    
+    for j in range(i, m - i - 1):    # (n-1, 0)부터 (n-1, m-1 (-1)) 까지 넣기
+        q[i].append(graph[(n - 1) - i][j])
+
+    for j in range(i, n - i - 1):     # (n-1, m-1)부터 (1, m-1) 까지 넣기
+        q[i].append(graph[(n - 1) - j][(m - 1) - i])
+    
+    for j in range(i, m - i - 1):     # (0, m-1)부터 (0, 1) 까지 넣기
+        q[i].append(graph[i][(m - 1) - j])
+# print(q)
+
+# r 주기
+decade = 1
+for i in range(len(q)):
+    decade *= len(q[i])
+R = r % decade
+
+for _ in range(R):  # R 만큼 돌리기
+    for i in range(len(q)):
+        x = q[i].pop()
+        q[i].appendleft(x)
+    
+# print(q)
+
+# 다시 list로 뿌리기
+ans = [[0 for _ in range(m)] for _ in range(n)]
+for i in range(len(q)):
+    temp = 0
+    for j in range(i, n - i - 1):    # (0, 0)부터 (n-1 (-1), 0) 까지 넣기
+        ans[j][i] = q[i][temp]
+        temp += 1
+    
+    for j in range(i, m - i - 1):    # (n-1, 0)부터 (n-1, m-1 (-1)) 까지 넣기
+        ans[(n - 1) - i][j] = q[i][temp]
+        temp += 1
+
+    for j in range(i, n - i - 1):     # (n-1, m-1)부터 (1, m-1) 까지 넣기
+        ans[(n - 1) - j][(m - 1) - i] = q[i][temp]
+        temp += 1
+       
+    for j in range(i, m - i - 1):     # (0, m-1)부터 (0, 1) 까지 넣기
+        ans[i][(m - 1) - j] = q[i][temp]
+        temp += 1
+
+for i in range(len(ans)):
+    print(*ans[i])
+```
+min(n, m) // 2 개수만큼 queue를 만들어 각 queue에 값을 채운다. 
+이후 R만큼 반시계방향으로 돌리는데, 맨 뒤 값을 빼 맨 앞으로 가져오게 된다. 
+R 값의 경우 r 주기에 해당하는 각 queue 크기들의 곱의 나머지 값에 해당하는 만큼 적용했다.
+마지막으로 다시 list에 뿌렸는데, 각 queue에 값을 채울 때 사용했던 for문 4개를 그대로 사용해 값을 넣어줬다.
+### 의견
+queue에 값을 채우고, 다시 list에 값을 넣어주는 과정에서 index 값에 대한 혼동이 올 수 있는 문제였다.
+직접 손으로 하나하나 써가며 따라가야 헷갈리지 않고 해결할 수 있는 구현 문제였다. 
+내 생각에 구현 문제중에 정말 좋은 문제인 것 같다.
