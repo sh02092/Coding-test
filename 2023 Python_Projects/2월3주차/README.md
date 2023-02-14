@@ -183,3 +183,33 @@ print(ans)
 빡센 구현문제, 1, 2, 3번 조건을 차례차례 따져가며 자리 배치를 하면 된다. 3번 조건의 경우 for문을 돌면서 자동으로 정해지기에 따로 지정하지 않아도 된다. 
 ### 의견
 예제 및 반례 케이스까지 모두 통과하여 풀었다고 생각했지만.. 틀렸다. 왜 틀렸을까.. 아기 상어 문제처럼... 혼란스럽다. 4시간은 투자한 것 같은데 뭐가 부족했던걸까
+
+
+## 트럭 주차
+https://www.acmicpc.net/problem/2979
+### 문제풀이
+```python
+import sys
+input = sys.stdin.readline
+
+a, b, c = map(int, input().split())
+graph = [0 for _ in range(101)]
+for _ in range(3):
+    start, end = map(int, input().split())
+    for i in range(start + 1, end + 1):
+        graph[i] += 1
+
+ans = 0
+for i in range(1, 101):
+    if graph[i] == 1:
+        ans += a
+    elif graph[i] == 2:
+        ans += b * 2
+    elif graph[i] == 3:
+        ans += c * 3
+
+print(ans)
+```
+1대 있을 때, 2대 있을 때, 3대 있을 때의 시간을 각각 구해 a, b, c에 곱해주면 된다.
+### 의견
+1분당 a, b, c원 이므로 start 시간에서 1을 더해서 계산해야 하고, 한 대당 a, b, c원이므로 b, c원을 곱할 땐 각각 2, 3을 곱한 값을 더해줘야 한다.
