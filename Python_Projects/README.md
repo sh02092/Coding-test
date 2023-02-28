@@ -231,6 +231,23 @@ chr(65) = 'A'
 ```
 
 
+## 깊은 복사
+```python
+import copy
+
+li1 = [3,2,1]
+li4 = li1
+li3 = li1.copy()
+li2 = copy.deepcopy(li1)
+li1[1] = 5
+
+print(li1)  # 3, 5, 1
+print(li2)  # 3, 2, 1   깊은 복사
+print(li3)  # 3, 2, 1   깊은 복사
+print(li4)  # 3, 5, 1   복사
+```
+
+
 ### C++
 
 ## type 확인
